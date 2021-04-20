@@ -1,0 +1,90 @@
+<html>
+<head>
+	<title>Criação de Prontuario</title>
+	<link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
+</head>
+<body>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm"></div>
+   	
+	<form method="POST" action="/prontuario" enctype="multipart/form-data">
+	<div class="col-sm">
+	
+		<input id="chaveI" name="chaveI" value="{{chaveI}}">
+		<input id="chaveP" name="chaveP" value="{{chaveP}}">
+		
+		<input id="chaveI_rsa" name="chaveI_rsa" type="hidden" value="{{chaveI_rsa}}">
+		<input id="chaveI_rsa" name="chaveP_rsa" type="hidden" value="{{chaveP_rsa}}">
+	
+		<h1>Cadastro Prontuário</h1>
+		{{ prontuario.csrf_token }}
+		<div class="form-group">
+			<label> Cabeçalho</label>
+			</br>
+			{{ prontuario.cabecalho (size=50, class="form-control", placeholder="Cabeçalho do prontuário") }} 
+			
+			{% if prontuario.errors.id %}
+			<div class=""alert alert-danger" role="alert">
+				{{ prontuario.errors.id }}
+			</div>
+			{%endif%}
+			
+		</div>
+		<div class="form-group">
+			<label> Subjetivo</label>
+			</br>
+	    		{{ prontuario.subjective (class="form-control", placeholder="Sintomas do paciente")}}
+	    		{% if prontuario.errors.nome %}
+			<div class=""alert alert-danger" role="alert">
+				{{ prontuario.errors.nome }}
+			</div>
+			{%endif%}
+	    	</div>   
+	    	<div class="form-group">
+			<label> Objetivo</label>
+			</br>
+	    		{{ prontuario.objective (class="form-control", placeholder="Sinais Observados")}}
+	    		{% if prontuario.errors.nome %}
+			<div class=""alert alert-danger" role="alert">
+				{{ prontuario.errors.nome }}
+			</div>
+			{%endif%}
+	    	</div> 
+	    	<div class="form-group">
+			<label> Avaliação</label>
+			</br>
+	    		{{ prontuario.assessment (class="form-control", placeholder="Resultado de exames, diagnósticos e conclusões")}}
+	    		{% if prontuario.errors.nome %}
+			<div class=""alert alert-danger" role="alert">
+				{{ prontuario.errors.nome }}
+			</div>
+			{%endif%}
+	    	</div> 
+	    	<div class="form-group">
+			<label> Plano</label>
+			</br>
+	    		{{ prontuario.plan (class="form-control", placeholder="Conduta a ser feita")}}
+	    		{% if prontuario.errors.nome %}
+			<div class=""alert alert-danger" role="alert">
+				{{ prontuario.errors.nome }}
+			</div>
+			{%endif%}
+	    	</div> 
+	    	
+	    	<div class="form-group">
+			<label> Arquivo das chaves</label>
+			{{ prontuario.file }}
+	    	</div> 	
+	    		
+	    	<input type="submit" value="Criar">
+	    	<a href="{{url_for('index')}}"><input type="button" value="Voltar"></a>
+	</div>
+	</form>
+    <div class="col-sm"></div>
+    </div>
+ </div>
+	
+</body>
+</html>

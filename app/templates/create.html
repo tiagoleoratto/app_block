@@ -1,0 +1,16 @@
+<html>
+<head>
+	<title>Criação de Paciente</title>
+	<link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
+</head>
+<body>
+
+<form method="POST" action="/">
+    {{ paciente.id }} 
+    {{ paciente.nome }}
+    <input type="submit" value="Criar">
+</form>
+	
+	
+</body>
+</html>

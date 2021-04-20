@@ -1,0 +1,34 @@
+<html>
+<head>
+	<title>Criação de Prontuario</title>
+	<link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
+</head>
+<body>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm"></div>
+   	
+	<form method="POST" action="/dar_acesso/{{id}}/{{chave}}/{{idI}}" enctype="multipart/form-data">
+	<div class="col-sm">
+	
+		<input id="chaveI" name="chaveI" type="hidden" value="{{chaveI}}">		
+		
+		<h1>Informe sua chave</h1>
+		{{ pedechave.csrf_token }}
+			    	
+	    	<div class="form-group">
+			<label> Arquivo das chaves</label>
+			{{ pedechave.file }}
+	    	</div> 	
+	    		
+	    	<input type="submit" value="Enviar">
+	    	<a href="{{url_for('index')}}"><input type="button" value="Voltar"></a>
+	</div>
+	</form>
+    <div class="col-sm"></div>
+    </div>
+ </div>
+	
+</body>
+</html>

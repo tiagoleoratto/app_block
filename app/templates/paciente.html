@@ -1,0 +1,48 @@
+<html>
+<head>
+	<title>Criação de Prontuario</title>
+	<link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
+</head>
+<body>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm"></div>
+   	
+	<form method="POST" action="/paciente">
+	<div class="col-sm">
+		<h1>Cadastro Paciente</h1>
+		{{ paciente.csrf_token }}
+		<div class="form-group">
+			<label> Id do Paciente </label>
+			</br>
+			{{ paciente.id (size=50, class="form-control", placeholder="Id do Paciente") }} 
+			
+			{% if paciente.errors.id %}
+			<div class=""alert alert-danger" role="alert">
+				{{ paciente.errors.id }}
+			</div>
+			{%endif%}
+			
+		</div>
+		<div class="form-group">
+			<label> Nome do Paciente</label>
+			</br>
+	    		{{ paciente.nome (class="form-control", placeholder="Nome do Paciente")}}
+	    		{% if paciente.errors.nome %}
+			<div class=""alert alert-danger" role="alert">
+				{{ paciente.errors.nome }}
+			</div>
+			{%endif%}
+	    	</div>   
+	    		
+	    	<input type="submit" value="Criar">
+	    	<a href="{{url_for('index')}}"><input type="button" value="Voltar"></a>
+	</div>
+	</form>
+    <div class="col-sm"></div>
+    </div>
+ </div>
+	
+</body>
+</html>

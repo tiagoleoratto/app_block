@@ -1,0 +1,38 @@
+<html>
+<head>
+	<title>Buscar de Instituicao</title>
+	<link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
+</head>
+<body>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm"></div>
+   	
+	<form method="POST" action="/buscar_instituicao_a">
+	<div class="col-sm">
+		<h1>Buscar Instituição</h1>
+		{{ info_instituicao.csrf_token }}
+		<div class="form-group">
+			<label> Id da Instituição </label>
+			</br>
+			{{ info_instituicao.id (size=50, class="form-control", placeholder="Identificador da Instituição") }} 
+			
+			{% if info_instituicao.errors.id %}
+			<div class=""alert alert-danger" role="alert">
+				{{ info_instituicao.errors.id }}
+			</div>
+			{%endif%}
+			
+		</div>
+
+	    	<input type="submit" value="Buscar">
+	    	<a href="{{url_for('index')}}"><input type="button" value="Voltar"></a>
+	</div>
+	</form>
+    <div class="col-sm"></div>
+    </div>
+ </div>
+	
+</body>
+</html>

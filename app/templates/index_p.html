@@ -1,0 +1,28 @@
+<html>
+<head>
+	<title>BlocosPiloto</title>
+	<link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
+</head>
+<body>
+	
+<form method='POST' action='/index'>	
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      
+    </div>
+    <div class="col-sm">
+    	<h1>Bem-Vindo</h1>
+	<button type="submit" class="btn btn-secondary btn-lg btn-block" name='paciente' value="paciente">Cadastro Paciente</button>
+	<button type="submit" class="btn btn-secondary btn-lg btn-block" name='listar' value="listar">Listar Prontuário</button>
+	<button type="submit" class="btn btn-secondary btn-lg btn-block" name='acesso' value="acesso">Dar Acesso</button>
+    </div>
+    <div class="col-sm">
+      
+    </div>
+  </div>
+</div>
+</form>
+	<script src="{{ url_for('static',filename='js/bootstrap.min.js')}}">	</script>
+</body>
+</html>

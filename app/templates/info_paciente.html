@@ -1,0 +1,42 @@
+<html>
+<head>
+	<title>Buscar de Paciente</title>
+	<link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
+</head>
+<body>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm"></div>
+   	
+	<form method="POST" action="/buscar_paciente">
+	<div class="col-sm">
+		<h1>Buscar Paciente</h1>
+		{{ info_paciente.csrf_token }}
+		<div class="form-group">
+			<label> Id do Paciente </label>
+			</br>
+			{{ info_paciente.idP (size=50, class="form-control", placeholder="Identificador do Paciente") }} 
+			
+			{% if info_paciente.errors.idP %}
+			<div class=""alert alert-danger" role="alert">
+				{{ info_paciente.errors.idP }}
+			</div>
+			{%endif%}
+			
+		</div>
+		<div>
+			<input id="chaveI" name="chaveI" type="hidden" value="{{chaveI}}">
+			<input id="chaveI_rsa" name="chaveI_rsa" type="hidden" value="{{chaveI_rsa}}">
+		</div>
+
+	    	<input type="submit" value="Buscar">
+	    	<a href="{{url_for('index')}}"><input type="button" value="Voltar"></a>
+	</div>
+	</form>
+    <div class="col-sm"></div>
+    </div>
+ </div>
+	
+</body>
+</html>

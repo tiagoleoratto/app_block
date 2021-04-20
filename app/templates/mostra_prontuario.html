@@ -1,0 +1,36 @@
+<html>
+<head>
+	<title>Criação de Prontuario</title>
+	<link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
+</head>
+<body>
+<div class="container">
+<h1>Prontuario</h1>
+	<table style="width:100%" border="1px solid black">
+		<tr>
+			<th>ID</th>
+			<th>{{id}}</th>
+		</tr>	
+		<tr>
+			<td>Subjetivo</td>
+			<td>{{ prontuario['Subjective'] }}</td>
+		</tr>		
+		<tr>
+			<td>Objetivo</td>
+			<td>{{ prontuario['Objective'] }}</td>
+		</tr>
+		<tr>
+			<td>Avaliação</td>
+			<td>{{ prontuario['Assessment'] }}</td>
+		</tr>
+		<tr>
+			<td>Plano</td>
+			<td>{{ prontuario['Plan'] }}</td>
+		</tr>
+	</table>
+	</br>
+	<a href="{{url_for('index')}}"><input type="button" value="Voltar"></a>
+</div>
+	
+</body>
+</html>

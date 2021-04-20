@@ -1,0 +1,34 @@
+<html>
+<head>
+	<title>Buscar de Paciente</title>
+	<link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
+</head>
+<body>
+
+<div class="container">
+  <div class="row">
+	<div class="col-sm">
+		<h1>Lista de prontuario</h1>
+		<input id="chaveI" name="chaveI" type="hidden" value="{{chaveI}}">		
+		
+		<label>Paciente: {{prontuario.user_pub_key_bdb}} </label>
+		<table style="width:100%" border="1px solid black">
+			<tr>
+				<th>Cabeçalho</th>
+				<th>ID</th>
+			</tr>	
+			{% for item in prontuario.html %} 
+				<tr>
+				<td>{{ item }}</td>
+				<td><a name='id' href="{{url_for('buscar_prontuario',id=prontuario.html[item], chave=chaveI)}}">{{  prontuario.html[item] }}</td>
+				</tr>
+			{%endfor%}
+					
+		</table>
+	</div>
+	
+ </div>
+ 	</br>
+	<a href="{{url_for('index')}}"><input type="button" value="Voltar"></a>
+</body>
+</html>
